@@ -1,10 +1,6 @@
 # frozen_string_literal: true
 
 Dir["./services/*.rb"].each { |file| require file }
-require 'bigdecimal'
-require 'bigdecimal/util'
-require 'ostruct'
-require 'pry'
 
 class Calculator
   def call
@@ -34,4 +30,6 @@ class Calculator
   end
 end
 
-Calculator.new.call
+unless ENV['test'] == 'true'
+  Calculator.new.call
+end
